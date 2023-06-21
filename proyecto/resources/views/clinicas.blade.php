@@ -57,77 +57,50 @@
 <div class="fondo_registro">
 <div class="registro">
 <div class="title_form">
-    <h2>Por favor complete el siguiente formulario para poder registrarlo en el sistema</h2>
+    <h2>Por favor complete el siguiente formulario para poder registrar la clinica en el sistema</h2>
      </div>
      
      <div class="form_container">
      <div class="form">
-     <form action="validar_registro" method="POST " id="formulario">
-         <div class="form-section current" id="seccion1">
+     <form action="registro_clinicas" method="POST " id="formulario">
+        
+            <!-- el barrio es por select box -->
+            <label type="text" for="barrios">Barrios</label>
+            <select name="barrio" id="barrio">
+               <option value="">Seleccione un barrio</option>
+                @foreach ($barrios as $barrio)
+                <option value="{{ $barrio->nombre}}">{{ $barrio->nombre }}</option>
+                @endforeach
+           </select>
+            <!-- la especialidad es por select box-->
+            <label type="text" for="especialidad">Especialidad</label>
+            <select name="especialidad" id="especialidad">
+               <option value="">Seleccione la especialidad</option>
+                @foreach ($especialidades as $especialidad)
+                <option value="{{ $especialidad->nombre}}">{{ $especialidad->nombre }}</option>
+                @endforeach
+           </select>
              <label for="nombre">Nombre:</label>
              <input type="text" pattern="[A-Za-z\s]+" title="Por favor, ingresa solo letras y espacios" id="nombre" name="nombre" required>
-             <label for="apellido">Apellido:</label>
-             <input type="text" pattern="[A-Za-z\s]+" title="Por favor, ingresa solo letras y espacios" id="apellido" name="apellido" required>
-             <label for="DNI">DNI:</label>
-             <input type="text" pattern="/^\d{8}$/" title="Por favor, ingresa solo números"id="DNI" name="DNI" required>
-             <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
-             <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
-             <label type="text" id="telefono_1" name="telefono_1"> Telefono de contacto</label>
-             <input type="text" pattern="/^\d{8}$/" title="Por favor, ingresa solo números" id="telefono_1" name="telefono_1" required>
-             <label type="text" id="telefono_2" name="telefono_2"> Telefono de contacto</label>
-             <input type="text" pattern="/^\d{8}$/" title="Por favor, ingresa solo números" id="telefono_2" name="telefono_2" required>
-             <label type="text" id="nombre_usuario" name="nombre_usuario"> Nombre de usuario</label>
-             <input type="text" id="nombre_usuario" name="nombre_usuario" required>
-                       
-         </div>
-              <div class="form-section" id="seccion2">
-             <label type="text" id="domicilio" name="domicilio"> Domicilio</label>
+             <label  id="domicilio" name="domicilio"> Domicilio</label>
              <input type="text" id="domicilio" name="domicilio" required>
- 
-         <!--seleccion de la provincia -->
- 
-         <label type="text" for="provincias">Provincia</label>
-         <select name="provincia" id="provincia">
-            <option value="">Seleccione una provincia</option>
-            @foreach ($provincias as $provincia)
-            <option value="{{ $provincia->nombre }}">{{ $provincia->nombre }}</option>
-
-             @endforeach
-        </select>
-        
-          
-        <!--seleccion de los ciudad-->
-             <label type="text" for="ciudades">Ciudad</label>
-             <select name="ciudad" id="ciudad" >
-                <option value="">Seleccione una ciudad</option>
-                @foreach ($ciudades as $ciudad)
-                 <option value="{{ $ciudad->nombre }}">{{ $ciudad->nombre }}</option>
-                 @endforeach
-            </select>
-             
-             <!--seleccion de los barrios -->
-             <label type="text" for="barrios">Barrios</label>
-             <select name="barrio" id="barrio">
-                <option value="">Seleccione un barrio</option>
-                 @foreach ($barrios as $barrio)
-                 <option value="{{ $barrio->nombre}}">{{ $barrio->nombre }}</option>
-                 @endforeach
-            </select>
-             
-             
              <label for="correo">Correo electrónico:</label>
              <input type="email" id="correo" name="correo" required>
- 
-             <label for="password">Contraseña:</label>
-             <input type="password" id="password" name="password" required>
-             <label type="text"  name="tipo_usuario"> Seleccione el tipo de usuario para finalizar el registro</label>
-             <select id="tipo_usuario"></select>
- 
-             <div class="button-group">
-             <button type="button" onclick="window.location.href='/'">Atrás</button>
-             <button type="submit">Registrarse</button>
+             <label  id="sucursal" name="sucursal"> Sucursal</label>
+             <input type="text" pattern="^\[0-9]+$" title="Por favor, ingresa solo números" id="sucursal" name="sucursal" required>
+             <label  id="telefono" name="telefono"> Telefono de contacto</label>
+             <input type="text" pattern="^\d{10}$" title="Por favor, ingresa solo números sin 0 ni 15" id="telefono" name="telefono" required>
+             <label for="CUIT">CUIT:</label>
+             <input type="text" pattern="^\d{2}-\d{8}-\d{1}$" title="Por favor, ingresa solo números"id="CUIT" name="CUIT" required>
+             <label for="estado">Estado:</label>
+             <input type="text" pattern="[A-Za-z\s]+" title="Por favor, ingresa solo letras y espacios" id="estado" name="estado" required>
+             <label  id="encargado" name="encargado"> encargado</label>
+             <input type="text" id="encargado" name="encargado" required>           
+            <div class="button-group">
+             <button type="button" onclick="window.location.href='/admin'">Atrás</button>
+             <button type="submit">Registrar</button>
          </div>
-              </div>
+              
          </form>
      </div>
      </div>   
@@ -231,6 +204,8 @@
 
 <!-- Template Javascript -->
 <script src="js/main.js"></script>
+<script src="js/registro.js"></script>
+</body>
 </body>
 
 </html>

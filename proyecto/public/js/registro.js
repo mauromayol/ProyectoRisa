@@ -99,160 +99,10 @@ function validarFormulario(event) {
 
    
   
-  // Datos de las provincias
-  const provincias = [
-    "Misiones",
-    "Buenos Aires",
-    "Córdoba",
-    "Santa Fe",
-    "Mendoza",
-    "Tucumán",
-    "Entre Ríos",
-    "Salta",
-    "Chaco",
-    "Corrientes",
-    "San Juan",
-    "Jujuy",
-    "Río Negro",
-    "Formosa",
-    "Neuquén",
-    "Chubut",
-    "San Luis",
-    "Catamarca",
-    "La Rioja",
-    "La Pampa",
-    "Santa Cruz",
-    "Santiago del Estero",
-    "Tierra del Fuego"
-  ];
+  
 
-  // Obtener los elementos select
  
-  const selectProvincias = document.getElementById("selectProvincias");
-    // Cargar las opciones de las provincias
-  provincias.forEach((provincia) => {
-    const option = document.createElement("option");
-    option.text = provincia;
-    selectProvincias.add(option);
-  });
-// cargar las opciones de las ciudades
-const ciudades = [
-    "Posadas",
-    "Eldorado",
-    "Oberá",
-    "Puerto Iguazú",
-    "Aristóbulo del Valle",
-    "San Vicente",
-    "Montecarlo",
-    "Jardín América",
-    "Leandro N. Alem",
-    "San Ignacio",
-    "Campo Grande",
-    "Garupá",
-    "Candelaria",
-    "San Pedro",
-    "Bonpland",
-    "San Antonio",
-    "Cerro Azul",
-    "San Javier",
-    "Puerto Esperanza",
-    "Colonia Alberdi",
-    "Puerto Libertad",
-    "Dos de Mayo",
-    "El Alcázar",
-    "Panambí",
-    "San Martín",
-    "Caa Yarí",
-    "Puerto Piray",
-    "Puerto Rico",
-    "Santa Ana",
-    "Santa Rita",
-    "Santo Pipó",
-    "Tres Capones",
-    "Azara",
-    "Gobernador López",
-    "Corpus",
-    "Puerto Leoni",
-    "Colonia Aurora",
-    "Colonia Delicia",
-    "Puerto Rico"
-  ];
-  const selectCiudades = document.getElementById("selectCiudades");
-  // Cargar las opciones de las ciudades
-  ciudades.forEach((ciudad) => {
-    const option = document.createElement("option");
-    option.text = ciudad;
-    selectCiudades.add(option);
-  });
-
-  // cargar las opciones de los barrios
-  const barrios = [
-    "Villa Urquiza",
-    "Miguel Lanús",
-    "Santa Rita",
-    "Villa Cabello",
-    "Itaembé Guazú",
-    "Itaembé Mini",
-    "Itaembé Potí",
-    "La Dolores",
-    "Villa Sarita",
-    "Barrio A-4",
-    "Barrio A-3-2",
-    "Barrio A-3-1",
-    "Barrio A-3-3",
-    "Barrio A-2",
-    "Barrio A-1",
-    "Barrio Norte",
-    "Barrio Sur",
-    "Itaembé Miní Ampliación",
-    "Centro",
-    "Km. 4",
-    "Villa Svea",
-    "Villa Barreyro",
-    "Villa Gunther",
-    "Villa Falk",
-    "Villa Ruff",
-    "San Miguel",
-    "San José",
-    "Bella Vista",
-    "San Francisco",
-    "Centro",
-    "Zona Este",
-    "Zona Oeste",
-    "Zona Sur",
-    "Villa Martos",
-    "Villa Victoria",
-    "Villa Nueva",
-    "Villa Londín",
-    "Villa Ruff",
-    "Villa Elena"
-  ];
-
-  // Obtener el elemento select
-  const selectBarrios = document.getElementById("selectBarrios");
-
-  // Cargar las opciones del select
-  barrios.forEach((barrio) => {
-    const option = document.createElement("option");
-    option.text = barrio;
-    selectBarrios.add(option);
-  });
-
-  // cargar el tipo de usuario
-    const usuarios=[
-    "Cliente",
-    "Veterinario",
-    "Administrativo"
-  ];
-  const tipo_usuario = document.getElementById("tipo_usuario");
-
-  // Cargar las opciones de las ciudades
-  usuarios.forEach((usuario) => {
-    const option = document.createElement("option");
-    option.text = usuario;
-    tipo_usuario.add(option);
-  });
-
+  
   function validarFechaNacimiento() {
     const fecha_nacimientoInput = document.getElementById("fecha_nacimiento");
     const fecha_nacimiento = new Date(fecha_nacimientoInput.value);
@@ -296,4 +146,51 @@ const ciudades = [
           document.getElementById(actual).classList.remove('current');
           document.getElementById(anterior).classList.add('/');
         }
-      
+ // experimento
+    $(document).ready(function() {
+        // Cuando cambia la selección de la provincia
+        $('#provincia').change(function() {
+            var provinciaId = $(this).val(); // Obtener el ID de la provincia seleccionada
+
+            // Realizar una solicitud AJAX para obtener las ciudades de la provincia seleccionada
+            $.ajax({
+                url: '/ciudades/' + provinciaId, // Ruta de la API que devuelve las ciudades
+                type: 'GET',
+                success: function(data) {
+                    // Limpiar las opciones actuales de ciudades
+                    $('#ciudad').empty();
+                    $('#ciudad').append('<option value="">Seleccione una ciudad</option>');
+
+                    // Agregar las nuevas opciones de ciudades
+                    $.each(data, function(key, value) {
+                        $('#ciudad').append('<option value="' + value.id + '">' + value.nombre + '</option>');
+                    });
+                }
+            });
+        });
+
+        // Cuando cambia la selección de la ciudad
+        $('#ciudad').change(function() {
+            var ciudadId = $(this).val(); // Obtener el ID de la ciudad seleccionada
+
+            // Realizar una solicitud AJAX para obtener los barrios de la ciudad seleccionada
+            $.ajax({
+                url: '/barrios/' + ciudadId, // Ruta de la API que devuelve los barrios
+                type: 'GET',
+                success: function(data) {
+                    // Limpiar las opciones actuales de barrios
+                    $('#barrio').empty();
+                    $('#barrio').append('<option value="">Seleccione un barrio</option>');
+
+                    // Agregar las nuevas opciones de barrios
+                    $.each(data, function(key, value) {
+                        $('#barrio').append('<option value="' + value.id + '">' + value.nombre + '</option>');
+                    });
+                }
+            });
+        });
+    });
+
+    $(document).ready(function() {
+      $('#CUIT').mask('99--99999999-9');
+    });   

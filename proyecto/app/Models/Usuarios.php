@@ -10,7 +10,6 @@ class Usuarios extends Model
     protected $connection = 'proyecto_risa';
     protected $table = 'usuario';
    
-
     public static function login($correo, $password)
     { $status = DB::connection('proyecto_risa')->getPdo()->getAttribute(\PDO::ATTR_CONNECTION_STATUS);
         dd($status);
@@ -32,5 +31,9 @@ class Usuarios extends Model
         }
 
         return false;
+    }
+    public static function registro($datos)
+    {
+        return self::create($datos);
     }
 }

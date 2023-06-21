@@ -1,0 +1,112 @@
+body{
+    background-color: #202020;
+ 
+    
+}
+h1,h2,h3,h4,h5,h6{
+ text-align: center;
+    color: white; /* Color de texto blanco */
+  font-weight: bold;
+  
+}
+th{
+    background-color: rgb(247, 110, 56) ;
+    text-align: left;
+    padding: 8px;
+    position: sticky;
+  top: 0;
+  color: white; /* Color de texto blanco */
+  font-weight: bold;
+}
+ td {
+    text-align: left;
+    padding: 8px;
+    color: white; /* Color de texto blanco */
+  font-weight: bold;
+  }
+  tr:nth-child(even) {
+    background-color: rgba(220, 100, 52, 0.781) ;
+  }
+
+.tabla_usuario{
+  
+    text-align: center;
+    border-collapse: collapse;
+    width: 1360px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    height: 300px;
+    overflow-y: scroll;
+    scrollbar-width:initial;   /* Ancho del scrollbar */
+    scrollbar-color: #970c0c #202020; /* Color del scrollbar */
+    border-radius: 10px;
+    position: sticky;
+  }
+.tabla_1{
+    border-radius: 10px;
+    text-align: center;
+    
+    top: 0;
+    width: 1400px;
+    height:410px;
+    border-collapse: collapse;
+    border: 2px solid #dc6434;
+}
+.botones {
+  display: flex;
+  justify-content:  center;
+  width: 450px;
+}
+
+.botones a {
+  display: inline-block;
+  width: calc(30% - 10px);
+  padding: 8px;
+  text-align: center;
+  background-color: #cedef0;
+  color: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  margin: 0 5px;
+}
+
+.botones a:hover {
+  background-color: #dc6434;;
+}
+.separador{
+  /* para separar los divs*/
+  padding: 8px;
+}
+
+.clinicas{
+  
+  text-align: center;
+    border-collapse: collapse;
+    width: 1500px;;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    bottom: 600px;
+    height: 300px;
+    overflow-y: scroll;
+    scrollbar-width:initial; /* Ancho del scrollbar */
+    scrollbar-color: #970c0c #202020; /* Color del scrollbar */
+    border-radius: 10px;
+    position: sticky;
+}
+.tabla_2{
+ 
+  margin-top: 20px;
+  margin-left: 0px;
+  border-radius: 10px;
+  text-align: center;
+  bottom: 500px;
+  width: 1450px;;
+  height:410px;
+  position: 600px;;
+  border-collapse: collapse;
+  border: 2px solid #dc6434;
+  top:0px;
+}
