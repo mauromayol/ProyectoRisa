@@ -191,10 +191,10 @@
             
             <div id="contenedorcentrado">
                 <div id="login">
-                    <form id="loginform" method="POST" action= 'iniciar_sesion'>
+                    <form id="loginform" method="POST" action= 'login'>
                         @csrf
                         <label for="correo">Correo</label>
-                        <input id="usuario" type="email" name="correo" placeholder="Usuario" required>
+                        <input id="usuario" type="email" name="correo_electronico" placeholder="Usuario" required>
                         
                         <label for="password">Contraseña</label>
                         <input id="password" type="password" placeholder="Contraseña" name="password" required>

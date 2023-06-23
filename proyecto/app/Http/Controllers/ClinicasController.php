@@ -21,6 +21,9 @@ class ClinicasController extends Controller
         public function RegistroClinicas(Request $request) { 
          dd('Estoy en RegistroClinicas');
         // Validar los datos del formulario
+       /* (new clinicas($request->imput()))->saveOrFail();
+        return redirect()->back()->with (["mensaje"=>"Clinica Registrada"]);
+        */
         $request->validate([
             'barrio' => 'required',
             'especialidad' => 'required',

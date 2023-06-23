@@ -3,31 +3,42 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use App\Models\Usuarios;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Redirect;
 
 class LoginController extends Controller
 
 {  
-         public function Login(Request $request)
-        {
-            // Prueba el inicio de sesión
-            $credentials = $request->validate([
-                'correo_electronico' => ['required', 'email'],
-                'password' => ['required'],
-            ]);
-    
-            if (Usuarios::login($credentials['correo_electronico'], $credentials['password'])) {
-                // El usuario ha iniciado sesión correctamenteS
-                return redirect()->intended(route('admin'));
-            }
-            else {
-                return redirect()->intended(route('registro'));
-            }
-        }
-        // funcion para el registro de los usuarios
+    public function login(Request $request)
+    {
+        $credentials = $request->only('correo_electronico', 'password');
+        //dd($credentials); 
+        // Validar las credenciales manualmente
+       // $usuario = Usuarios::where('correo_electronico', $credentials['correo_electronico'])->first();
+       $correoElectronico = $credentials['correo_electronico'];
+       $password = $credentials['password'];
+       $usuarios = DB::select('SELECT correo_electronico, password FROM usuario');
         
+       foreach ($usuarios as $usuario) {
+           if ($usuario->correo_electronico === $correoElectronico && $usuario->password===$password) {
+            // La autenticación fue exitosa
+            //dd($usuario); 
+            //dd('Inicio de sesión exitoso');
+            // Realiza las acciones necesarias después del inicio de sesión,
+            // como redireccionar a una página de inicio, mostrar un mensaje, etc.
+            
+            return Redirect::to('/admin');
+        }
+        
+        // La autenticación falló, mostrar un mensaje de error
+        return back()->withErrors([
+            'message' => 'Correo electrónico o contraseña incorrectos',
+        ]);
+    }}
+    
 
     // Método para cerrar sesión
    /* public function logout()
@@ -38,5 +49,4 @@ class LoginController extends Controller
         return redirect('/inicio');
     }*/
 }
-
 

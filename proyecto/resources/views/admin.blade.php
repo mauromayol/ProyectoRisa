@@ -30,9 +30,10 @@
 </head>
 <body>
     
+
 <div>
-    <h1>Tablas de consulta SQL</h1>
-     
+    <h1>Bienvenido, {{ session('usuario_nombre') }}</h1>
+    <h2>Tablas de consulta SQL</h2>
     <div class='tabla_1'>
         <h3>Tabla de Usuarios</h3>
         <div class='tabla_usuario'>

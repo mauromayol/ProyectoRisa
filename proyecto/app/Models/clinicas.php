@@ -10,4 +10,16 @@ class clinicas extends Model
 {
     use HasFactory;
     protected $table = 'clinica';
+    protected $fillable = [
+        'barrio',
+        'especialidad',
+        'nombre',
+        'domicilio',
+        'correo',
+        'sucursal',
+        'telefono',
+        'CUIT',
+        'estado',
+        'encargado',
+    ];
 }

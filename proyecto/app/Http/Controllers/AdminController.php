@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 { // funcion para que el admin vea las clinicas y los usuarios cargados en la base de datos
+    public function admin()
+    {
+        return view('admin');
+    }
     public function mostrarTablas()
     {
         $resultados = DB::select('SELECT *from usuario');

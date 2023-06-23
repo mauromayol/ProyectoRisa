@@ -34,8 +34,9 @@ Route::controller(InicioController::class)->group(function(){
 });
 
 // rutas para las vistas del administrator
-Route::view('/admin','admin')->name ('admin');
+//Route::view('/admin','admin')->name ('admin');
 Route::controller(AdminController::class)->group(function(){
+    Route::get('/admin','admin')->name ('admin');
     Route::get('/admin', 'mostrarTablas')->name('admin.usuarios');
     // Route::post('/validar_registro',[AdminController::class,'Registro'])->name('validar_registro');
 });
@@ -44,21 +45,17 @@ Route::view('/cliente','cliente')->name ('cliente');
 
 
 // ruta para el registro de las clinicas
-/*Route::view('/clinicas', 'clinicas')->name('clinicas');
-Route::controller(ClinicasController::class)->group(function(){
-    Route::get('/clinicas', 'selectBox')->name('clinicas');
-    Route::post('/registro_clinicas',[ClinicasController::class,'RegistroClinicas'])->name('registro_clinicas');
-});*/
 Route::group(['prefix' => 'clinicas'], function () {
-    Route::get('/', [ClinicasController::class, 'index'])->name('clinicas.index');
-    Route::get('/clinicas', [ClinicasController::class, 'selectBox'])->name('clinicas');
-    Route::post('/registro', [ClinicasController::class, 'registroClinicas'])->name('registro_clinicas');
+    Route::get('/', [ClinicasController::class, 'index'])->name('clinicas');
+    Route::get('/', [ClinicasController::class, 'selectBox'])->name('clinicas');
+    Route::post('/registro_clinicas', [ClinicasController::class, 'registroClinicas'])->name('registro_clinicas');
 });
 
 
 // creo las rutas para verificar el acceso de los usuarios
-Route::post('/iniciar_sesion',[LoginController::class,'Login'])->name('iniciar_sesion');
+Route::post('/login',[LoginController::class,'login'])->name('login');
 
+    
 //ruta para el registro de los usuarios
 Route::get('/registro', [RegistroController::class, 'SelectBox']);
 Route::post('/validar_registro',[RegstroController::class,'Registro'])->name('validar_registro');

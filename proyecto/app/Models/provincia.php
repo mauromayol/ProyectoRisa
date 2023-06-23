@@ -12,6 +12,7 @@ class provincia extends Model
     protected $table = 'provincia';
 
     protected $fillable = [
+        'id_provincia',
         'nombre',
     ];
     
