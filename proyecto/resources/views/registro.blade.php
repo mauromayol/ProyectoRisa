@@ -69,15 +69,14 @@
              <label for="apellido">Apellido:</label>
              <input type="text" pattern="[A-Za-z\s]+" title="Por favor, ingresa solo letras y espacios" id="apellido" name="apellido" required>
              <label for="DNI">DNI:</label>
-             <input type="text" pattern="/^\d{8}$/" title="Por favor, ingresa solo números"id="DNI" name="DNI" required>
+             <input type="text" pattern="^\[0-9]+$" title="Por favor, ingresa solo números"id="DNI" name="DNI" required>
              <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
              <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
              <label type="text" id="telefono_1" name="telefono_1"> Telefono de contacto</label>
-             <input type="text" pattern="/^\d{8}$/" title="Por favor, ingresa solo números" id="telefono_1" name="telefono_1" required>
+             <input type="text" pattern="^\[0-9]+$" title="Por favor, ingresa solo números" id="telefono_1" name="telefono_1" required>
              <label type="text" id="telefono_2" name="telefono_2"> Telefono de contacto</label>
-             <input type="text" pattern="/^\d{8}$/" title="Por favor, ingresa solo números" id="telefono_2" name="telefono_2" required>
-             <label type="text" id="nombre_usuario" name="nombre_usuario"> Nombre de usuario</label>
-             <input type="text" id="nombre_usuario" name="nombre_usuario" required>
+             <input type="text" pattern="^\[0-9]+$" title="Por favor, ingresa solo números" id="telefono_2" name="telefono_2" required>
+             
                        
          </div>
               <div class="form-section" id="seccion2">
@@ -120,9 +119,7 @@
  
              <label for="password">Contraseña:</label>
              <input type="password" id="password" name="password" required>
-             <label type="text"  name="tipo_usuario"> Seleccione el tipo de usuario para finalizar el registro</label>
-             <select id="tipo_usuario"></select>
- 
+              
              <div class="button-group">
              <button type="button" onclick="window.location.href='/'">Atrás</button>
              <button type="submit">Registrarse</button>
@@ -138,16 +135,16 @@
 <div class="container-fluid bg-dark text-white mt-5 py-5 px-sm-3 px-md-5">
     <div class="row pt-5">
         <div class="col-lg-4 col-md-12 mb-5">
-            <h1 class="mb-3 display-5 text-capitalize text-white"><span class="text-primary">Pet</span>Lover</h1>
-            <p class="m-0">Ipsum amet sed vero et lorem stet eos ut, labore sed sed stet sea est ipsum ut. Volup amet ea sanct ipsum, dolore vero lorem no duo eirmod. Eirmod amet ipsum no ipsum lorem clita ut. Ut sed sit lorem ea lorem sed, amet stet sit sea ea diam tempor kasd kasd. Diam nonumy etsit tempor ut sed diam sed et ea</p>
-        </div>
+            <h1 class="mb-3 display-5 text-capitalize text-white"><span class="text-primary">Proyecto</span>RISA</h1>
+            <p class="m-0">"El cuidado animal no solo demuestra compasión, sino que también refleja nuestra humanidad. Cada pequeño acto de amor y protección hacia ellos marca la diferencia en el mundo. ¡Juntos, podemos construir un futuro donde los animales sean valorados, respetados y protegidos!"</p>            </div>
         <div class="col-lg-8 col-md-12">
             <div class="row">
                 <div class="col-md-4 mb-5">
-                    <h5 class="text-primary mb-4">Get In Touch</h5>
-                    <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, New York, USA</p>
-                    <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
-                    <p><i class="fa fa-envelope mr-2"></i>info@example.com</p>
+                    <h5 class="text-primary mb-4">Contacto</h5>
+                    <p><i class="fa fa-map-marker-alt mr-2"></i>Cabred 1265, Posadas Misiones ARA</p>
+                    <p><i class="fa fa-phone-alt mr-2"></i>Directo +54 3764 43-36-79</p>
+                    <p><i class="fa fa-phone-alt mr-2"></i>Whatsapp +54 9 3764 17-90-19</p>
+                    <p><i class="fa fa-envelope mr-2"></i>info@consejoveterinariomisiones.com</p>
                     <div class="d-flex justify-content-start mt-4">
                         <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -156,29 +153,16 @@
                     </div>
                 </div>
                 <div class="col-md-4 mb-5">
-                    <h5 class="text-primary mb-4">Popular Links</h5>
+                    <h5 class="text-primary mb-4">Links Populares</h5>
                     <div class="d-flex flex-column justify-content-start">
-                        <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Home</a>
-                        <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>About Us</a>
-                        <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Services</a>
-                        <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Team</a>
-                        <a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>
+                        <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Inicio</a>
+                        <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>consejoveterinariomisiones/</a>
+                        <a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>ImuSA</a>
+                        <!--<a class="text-white mb-2" href="#"><i class="fa fa-angle-right mr-2"></i>Our Team</a>
+                        <a class="text-white" href="#"><i class="fa fa-angle-right mr-2"></i>Contact Us</a>-->
                     </div>
                 </div>
-                <div class="col-md-4 mb-5">
-                    <h5 class="text-primary mb-4">Newsletter</h5>
-                    <form action="">
-                        <div class="form-group">
-                            <input type="text" class="form-control border-0" placeholder="Your Name" required="required" />
-                        </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control border-0" placeholder="Your Email" required="required" />
-                        </div>
-                        <div>
-                            <button class="btn btn-lg btn-primary btn-block border-0" type="submit">Submit Now</button>
-                        </div>
-                    </form>
-                </div>
+               
             </div>
         </div>
     </div>

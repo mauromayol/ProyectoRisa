@@ -20,7 +20,7 @@ class LoginController extends Controller
        // $usuario = Usuarios::where('correo_electronico', $credentials['correo_electronico'])->first();
        $correoElectronico = $credentials['correo_electronico'];
        $password = $credentials['password'];
-       $usuarios = DB::select('SELECT correo_electronico, password FROM usuario');
+       $usuarios = DB::select('SELECT correo_electronico, password, nombre FROM usuario');
         
        foreach ($usuarios as $usuario) {
            if ($usuario->correo_electronico === $correoElectronico && $usuario->password===$password) {
@@ -29,7 +29,7 @@ class LoginController extends Controller
             //dd('Inicio de sesión exitoso');
             // Realiza las acciones necesarias después del inicio de sesión,
             // como redireccionar a una página de inicio, mostrar un mensaje, etc.
-            
+            session(['usuario_nombre' => $usuario->nombre]);
             return Redirect::to('/admin');
         }
         

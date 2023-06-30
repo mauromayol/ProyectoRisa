@@ -85,7 +85,7 @@
         </div>
         <div class="separador"></div>
         <div class='botones'>
-            <a >Agregar</a>
+            <a href="registro" >Agregar</a>
             <a >Modificar</a>
             <a >Borrar</a>
         </div>
@@ -208,6 +208,9 @@
     </div>
 </div>
 <!-- Footer End -->
+<!-- Back to Top -->
+<a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
 </body>
 </html>
 
